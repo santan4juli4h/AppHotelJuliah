@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppHotelJuliah.MainPage"
+    Title="Reservas">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="15">
+
+            <Label
+                Text="HOTEL JULIAH"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#24476B"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Faça sua reserva!"
+                FontSize="20"
+                HorizontalOptions="Center" />
+
+            <Label Text="Nome do hóspede:" />
+            <Entry
+                Placeholder="Digite seu nome"
+                Text="{Binding NomeHospede}" />
+
+            <Label Text="Tipo de quarto:" />
+            <Picker
+                Title="Escolha o quarto"
+                ItemsSource="{Binding TiposQuarto}"
+                SelectedItem="{Binding TipoQuarto}" />
+
+            <Label Text="Data de entrada:" />
+            <DatePicker Date="{Binding DataEntrada}" />
+
+            <Label Text="Quantidade de hóspedes:" />
+            <Stepper
+                Minimum="1"
+                Maximum="5"
+                Value="{Binding QuantidadeHospedes}" />
+
+            <Label
+                Text="{Binding QuantidadeHospedes}"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button
+                Text="CONFIRMAR RESERVA"
+                BackgroundColor="#24476B"
+                TextColor="White"
+                CornerRadius="10"
+                Command="{Binding ReservarCommand}" />
+
+            <Label
+                Text="{Binding ResumoReserva}"
+                FontSize="16"
+                TextColor="#24476B" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
