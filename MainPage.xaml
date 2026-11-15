@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppHotelJuliah.MainPage"
+    Title="App Hotel"
+    BackgroundColor="#FFF8F0">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="18">
+
+            <Label
+                Text="APP HOTEL"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#795548"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="Sua próxima viagem começa aqui!"
+                FontSize="16"
+                TextColor="#8D7770"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="Faça sua reserva"
+                FontSize="23"
+                FontAttributes="Bold"
+                TextColor="#795548"/>
+
+            <Label Text="Nome do hóspede" TextColor="#795548"/>
+
+            <Entry
+                Placeholder="Digite seu nome"
+                BackgroundColor="White"/>
+
+            <Label Text="Data de entrada" TextColor="#795548"/>
+
+            <DatePicker
+                Format="dd/MM/yyyy"
+                BackgroundColor="White"/>
+
+            <Label Text="Quantidade de hóspedes" TextColor="#795548"/>
+
+            <Stepper
+                Minimum="1"
+                Maximum="10"
+                Increment="1"
+                Value="2"/>
+
+            <Label Text="Tipo de quarto" TextColor="#795548"/>
+
+            <Picker
+                Title="Selecione o quarto"
+                BackgroundColor="White">
+                <Picker.Items>
+                    <x:String>Standard</x:String>
+                    <x:String>Luxo</x:String>
+                    <x:String>Suíte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button
+                Text="SOLICITAR RESERVA"
+                BackgroundColor="#B77B78"
+                TextColor="White"
+                CornerRadius="12"/>
+
+            <Button
+                Text="Sobre o aplicativo"
+                BackgroundColor="#795548"
+                TextColor="White"
+                CornerRadius="12"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
