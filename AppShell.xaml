@@ -5,9 +5,16 @@
     xmlns:local="clr-namespace:AppHotelJuliah"
     x:Class="AppHotelJuliah.AppShell">
 
-    <ShellContent
-        Title="Hotel"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Reservas"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+
+        <ShellContent
+            Title="Sobre"
+            ContentTemplate="{DataTemplate local:SobrePage}"
+            Route="SobrePage" />
+    </TabBar>
 
 </Shell>
