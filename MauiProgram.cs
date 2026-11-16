@@ -1,3 +1,6 @@
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+
 namespace AppHotelJuliah;
 
 public static class MauiProgram
