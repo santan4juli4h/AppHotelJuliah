@@ -3,40 +3,34 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppHotelJuliah.SobrePage"
-    Title="Sobre">
+    Title="Sobre"
+    BackgroundColor="#FFF8F0">
 
     <VerticalStackLayout
         Padding="30"
         Spacing="20"
         VerticalOptions="Center">
 
-        <Label
-            Text="HOTEL JULIAH"
-            FontSize="30"
-            FontAttributes="Bold"
-            TextColor="#24476B"
-            HorizontalOptions="Center" />
+        <Label Text="HOTEL JULIAH"
+               FontSize="30"
+               FontAttributes="Bold"
+               TextColor="#795548"
+               HorizontalOptions="Center"/>
 
-        <Label
-            Text="Sobre o aplicativo"
-            FontSize="22"
-            HorizontalOptions="Center" />
+        <Label Text="Aplicativo de reservas de hotel"
+               FontSize="18"
+               TextColor="#8D7770"
+               HorizontalOptions="Center"/>
 
-        <Label
-            Text="Aplicativo desenvolvido para facilitar a solicitação de reservas de hospedagem."
-            FontSize="17"
-            HorizontalTextAlignment="Center" />
+        <Label Text="Desenvolvido por: Juliah Santana"
+               FontSize="16"
+               TextColor="#795548"
+               HorizontalOptions="Center"/>
 
-        <Label
-            Text="Desenvolvedora: Juliah Santana"
-            FontSize="18"
-            HorizontalOptions="Center" />
-
-        <Label
-            Text="Ano: 2026"
-            FontSize="18"
-            HorizontalOptions="Center" />
+        <Label Text="Ano: 2026"
+               FontSize="16"
+               TextColor="#795548"
+               HorizontalOptions="Center"/>
 
     </VerticalStackLayout>
-
 </ContentPage>
