@@ -1,5 +1,6 @@
 using System.ComponentModel;
-using System.Windows.Input;
+using System.Runtime.CompilerServices;
+using Microsoft.Maui.Controls;
 
 namespace AppHotelJuliah;
 
@@ -9,94 +10,72 @@ public class ReservaViewModel : INotifyPropertyChanged
 
     public List<string> TiposQuarto { get; } = new()
     {
-        "Quarto simples",
-        "Quarto duplo",
-        "Suíte luxo"
+        "Standard",
+        "Luxo",
+        "Suíte"
     };
 
     private string nomeHospede = "";
     public string NomeHospede
     {
         get => nomeHospede;
-        set
-        {
-            nomeHospede = value;
-            OnPropertyChanged(nameof(NomeHospede));
-        }
-    }
-
-    private string tipoQuarto = "";
-    public string TipoQuarto
-    {
-        get => tipoQuarto;
-        set
-        {
-            tipoQuarto = value;
-            OnPropertyChanged(nameof(TipoQuarto));
-        }
+        set { nomeHospede = value; OnPropertyChanged(); }
     }
 
     private DateTime dataEntrada = DateTime.Today;
     public DateTime DataEntrada
     {
         get => dataEntrada;
-        set
-        {
-            dataEntrada = value;
-            OnPropertyChanged(nameof(DataEntrada));
-        }
+        set { dataEntrada = value; OnPropertyChanged(); }
     }
 
-    private double quantidadeHospedes = 1;
+    private double quantidadeHospedes = 2;
     public double QuantidadeHospedes
     {
         get => quantidadeHospedes;
-        set
-        {
-            quantidadeHospedes = value;
-            OnPropertyChanged(nameof(QuantidadeHospedes));
-        }
+        set { quantidadeHospedes = value; OnPropertyChanged(); }
+    }
+
+    private string tipoQuarto = "Standard";
+    public string TipoQuarto
+    {
+        get => tipoQuarto;
+        set { tipoQuarto = value; OnPropertyChanged(); }
     }
 
     private string resumoReserva = "";
     public string ResumoReserva
     {
         get => resumoReserva;
-        set
-        {
-            resumoReserva = value;
-            OnPropertyChanged(nameof(ResumoReserva));
-        }
+        set { resumoReserva = value; OnPropertyChanged(); }
     }
 
-    public ICommand ReservarCommand { get; }
+    public Command ReservarCommand { get; }
 
     public ReservaViewModel()
     {
-        ReservarCommand = new Command(ConfirmarReserva);
+        ReservarCommand = new Command(RealizarReserva);
     }
 
-    private void ConfirmarReserva()
+    private void RealizarReserva()
     {
-        if (string.IsNullOrWhiteSpace(NomeHospede) ||
-            string.IsNullOrWhiteSpace(TipoQuarto))
+        if (string.IsNullOrWhiteSpace(NomeHospede))
         {
-            ResumoReserva = "Preencha seu nome e escolha um quarto.";
+            ResumoReserva = "Informe o nome do hóspede.";
             return;
         }
 
         ResumoReserva =
-            $"Reserva solicitada!\n" +
-            $"Hóspede: {NomeHospede}\n" +
-            $"Quarto: {TipoQuarto}\n" +
-            $"Entrada: {DataEntrada:dd/MM/yyyy}\n" +
-            $"Hóspedes: {QuantidadeHospedes:0}";
+            $"Reserva solicitada para {NomeHospede}! " +
+            $"Entrada: {DataEntrada:dd/MM/yyyy}. " +
+            $"Hóspedes: {QuantidadeHospedes:F0}. " +
+            $"Quarto: {TipoQuarto}.";
     }
 
-    private void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(
+        [CallerMemberName] string? nome = null)
     {
         PropertyChanged?.Invoke(
-            this,
-            new PropertyChangedEventArgs(propertyName));
+            this, new PropertyChangedEventArgs(nome));
     }
 }
